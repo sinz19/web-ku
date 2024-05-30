@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permintaan Maaf Lucu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #D2691E; /* Warna coklat */
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        .card {
+            background-color: #FFC0CB; /* Warna pink */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            padding: 20px;
+            max-width: 400px;
+            position: relative;
+        }
+        .emoji {
+            font-size: 100px;
+        }
+        .title {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .message {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            position: relative;
+        }
+        .button:hover {
+            background-color: #ff4500;
+        }
+        .button:disabled {
+            background-color: #d3d3d3;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div id="emoji" class="emoji">😔</div>
+        <div class="title">Ups... Maaf ya!</div>
+        <div class="message">
+            maaf devina please kasih kesempatan percaya sama aku ini codingan untuk aku minta maaf ke devina baikan seperti kemarin yuk🍦
+        </div>
+        <button id="forgiveButton" class="button" onclick="forgive()">Maafkan Aku</button>
+        <button id="dontForgiveButton" class="button" onmouseover="moveButton()">Tidak</button>
+    </div>
+
+    <script>
+        function forgive() {
+            document.getElementById('emoji').textContent = '😊';
+            document.getElementById('forgiveButton').disabled = true;
+            document.getElementById('dontForgiveButton').disabled = true;
+            alert('Terima kasih! Kamu memang paling baik! 😄');
+        }
+
+        function moveButton() {
+            const button = document.getElementById('dontForgiveButton');
+            const card = document.querySelector('.card');
+            const cardRect = card.getBoundingClientRect();
+            const buttonRect = button.getBoundingClientRect();
+
+            let newTop = Math.random() * (cardRect.height - buttonRect.height);
+            let newLeft = Math.random() * (cardRect.width - buttonRect.width);
+
+            button.style.position = 'absolute';
+            button.style.top = `${newTop}px`;
+            button.style.left = `${newLeft}px`;
+        }
+    </script>
+</body>
+</html>
